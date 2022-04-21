@@ -16,5 +16,7 @@ int main(int argc, char * argv[]) {
         write(fd_npipe, buf, bytes_read);
     }
     
+    close(fd_npipe);
+
     return 0;
 }
