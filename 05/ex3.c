@@ -2,13 +2,13 @@
 #include <stdio.h>
 
 int main(int argc, char * argv) {
+    char buf[1024];
+    int read_bytes;
 
     // pipe_fd[0] = fd de leitura
     // pipe_fd[1] = fd de escrita
     int pipe_fd[2];
     pipe(pipe_fd);
-
-    char buf[1024];
 
 
     if(fork()==0) {
@@ -26,8 +26,9 @@ int main(int argc, char * argv) {
 
     close(pipe_fd[0]);
 
-    int read_bytes;
     while((read_bytes = read(0, buf, 1024))>0) write(pipe_fd[1], buf, read_bytes);
     
     close(pipe_fd[1]); //Garantir EOF
+
+    wait(NULL);
 }
