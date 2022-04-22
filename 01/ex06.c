@@ -14,7 +14,7 @@ int main(int argc, char * argv[]) {
 
 
     if((strcmp(argv[1], "-i"))==0) {
-        int fd1 = open("pessoas.bin", O_CREAT | O_TRUNC | O_WRONLY, 0664);
+        int fd1 = open("pessoas.bin", O_CREAT | O_TRUNC | O_WRONLY, 0600);
 
         Person p;
         strcpy(p.name, argv[2]);

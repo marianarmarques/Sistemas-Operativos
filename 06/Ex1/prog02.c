@@ -17,7 +17,7 @@ int main(int argc, int argv[]) {
     while((bytes_read=read(0, buf, 1024))>0) {
         write(fd1, buf, bytes_read);
     }
-
+    
     close(fd1);
     
     return 0;
